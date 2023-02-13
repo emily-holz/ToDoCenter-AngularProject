@@ -7,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   title = "My To Do Center";
-
-  constructor() { }
+ 
+  
+  constructor() { 
+  }
 
   ngOnInit() {
   }
