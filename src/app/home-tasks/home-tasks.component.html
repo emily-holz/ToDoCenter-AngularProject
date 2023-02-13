@@ -1,13 +1,20 @@
 <body>
     <h1>{{title}}</h1>
     <ul>
-        <li [class.crossedOff]="isCrossedOff" *ngFor="let task of tasks">{{task}}
+        <li *ngFor="let task of tasks">{{task}}
             <span>
-                <button class = "complete" (click)="isCrossedOff = !isCrossedOff">Done</button>
+                <button class = "complete-btn" (click)="completeTask(task)">Done</button>
                 <button (click)="removeTask(task)">Delete</button>
             </span></li>
     </ul>
     <input #newTask (keyup.enter)="addTask(newTask.value); newTask.value =''" type = "text" placeholder = "Add Task">
     <button (click)="addTask(newTask.value); newTask.value=''">Add</button>
+
+    <div *ngIf = "completedTasks.length != 0">
+        <h2>Completed</h2>
+        <ul class = "completed">
+            <li *ngFor = "let task of completedTasks">{{task}}</li>
+        </ul>
+    </div>
 
 </body>

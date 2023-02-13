@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class KidTasksComponent implements OnInit {
   title: string = "Kid-related Tasks"
   tasks: string[] = [];
+  completedTasks: string[] = [];
+  isCrossedOff:boolean = false;
 
   constructor() { }
 
@@ -21,6 +23,13 @@ export class KidTasksComponent implements OnInit {
   }
 
   removeTask(task:string){
+    let index = this.tasks.indexOf(task);
+    this.tasks.splice(index,1);
+  }
+
+  completeTask(task:string){
+    this.completedTasks.push(task);
+    
     let index = this.tasks.indexOf(task);
     this.tasks.splice(index,1);
   }

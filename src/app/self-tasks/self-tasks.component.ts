@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class SelfTasksComponent implements OnInit {
   title: string = "Self Tasks"
   tasks: string[] = [];
+  completedTasks: string[] = [];
+  isCrossedOff:boolean = false;
 
   constructor() { }
 
@@ -25,4 +27,10 @@ export class SelfTasksComponent implements OnInit {
     this.tasks.splice(index,1);
   }
 
+  completeTask(task:string){
+    this.completedTasks.push(task);
+    
+    let index = this.tasks.indexOf(task);
+    this.tasks.splice(index,1);
+  }
 }
