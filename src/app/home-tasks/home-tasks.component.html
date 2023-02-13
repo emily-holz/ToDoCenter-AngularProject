@@ -1,0 +1,13 @@
+<body>
+    <h1>{{title}}</h1>
+    <ul>
+        <li [class.crossedOff]="isCrossedOff" *ngFor="let task of tasks">{{task}}
+            <span>
+                <button class = "complete" (click)="isCrossedOff = !isCrossedOff">Done</button>
+                <button (click)="removeTask(task)">Delete</button>
+            </span></li>
+    </ul>
+    <input #newTask (keyup.enter)="addTask(newTask.value); newTask.value =''" type = "text" placeholder = "Add Task">
+    <button (click)="addTask(newTask.value); newTask.value=''">Add</button>
+
+</body>

@@ -1,0 +1,19 @@
+body {
+    background-color:lightblue;
+}
+
+h1 {
+    text-align: center;
+    font-weight: bold;
+    font-family:'Courier New', Courier, monospace; 
+}
+
+.crossedOff {
+   text-decoration:line-through;
+   color: gray;
+
+}
+
+.complete {
+    background-color: green;
+}
