@@ -4,3 +4,11 @@ h1 {
     color:darkblue;
     font-family:'Courier New', Courier, monospace; 
 }
+
+.inspirational-quotes {
+    text-align: center;
+    font-weight: bold;
+    color:rgb(20, 20, 53);
+    font-family:Georgia, 'Times New Roman', Times, serif; 
+}
+

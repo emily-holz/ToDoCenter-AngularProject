@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,7 @@ export class QuotesService {
   ) { }
 
   getQuotes(){
-    return this.http.get<{text: string, author: string}[]>('/assets/quotes.json');
+    return this.http.get("https://type.fit/api/quotes");
+  
   }
 }

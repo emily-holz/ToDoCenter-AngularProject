@@ -12,8 +12,8 @@ import { QuotesService } from '../quotes.service';
 })
 export class HeaderComponent implements OnInit {
   title = "My To Do Center";
-  quotes!: Observable<{text: String, author: String}[]>;
-  randomQuote: String;
+  quotes!: Observable<object>;
+  randomQuote: object;
  
   
   constructor(
@@ -25,8 +25,8 @@ export class HeaderComponent implements OnInit {
     this.quotes = this.quotesService.getQuotes();
   }
 
-  /*getRandomQuote():void {
-    this.randomQuote = this.quotes[Math.floor(Math.random() * this.quotes.length) ]
-  }*/
+  getRandomQuote():void {
+    //this.randomQuote = this.quotes[Math.floor(Math.random() * this.quotes.length)]
+  }
 
 }
