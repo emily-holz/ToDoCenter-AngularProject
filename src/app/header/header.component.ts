@@ -31,10 +31,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     
     this.getQuotes();
-    this.getRandomQuote();
-
-    console.log(this.randomQuote);
-   // this.quotes = this.quotesService.getQuotes();
+    //this.getRandomQuote();
+    //this.quotes = this.quotesService.getQuotes();
   }
 
 
@@ -48,6 +46,7 @@ export class HeaderComponent implements OnInit {
   }
 
   getRandomQuote(){
+    console.log("hello im running");
     this.randomQuote = this.quotes[Math.floor(Math.random() * this.quotes.length)];
   }
 
