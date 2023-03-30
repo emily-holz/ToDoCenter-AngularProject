@@ -3,3 +3,8 @@
 <div style = "text-align: center">
     <button>Inspire Me</button>
 </div>
+
+<div *ngFor= "let quote of quotes | async">
+    <span>{{ quote.text }}</span>
+    <span>{{ quote.author }}</span>
+</div>
