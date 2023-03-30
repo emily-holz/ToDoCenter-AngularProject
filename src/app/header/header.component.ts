@@ -1,9 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { QuotesService } from '../quotes.service';
+//import { QuotesService } from '../quotes.service';
 
+export class Quote{
+  constructor(
+    public text: string,
+    public author: string
+  ){}
 
+}
 
 @Component({
   selector: 'app-header',
@@ -12,21 +18,38 @@ import { QuotesService } from '../quotes.service';
 })
 export class HeaderComponent implements OnInit {
   title = "My To Do Center";
-  quotes!: Observable<object>;
-  randomQuote: object;
+  randomQuote: Quote;
+  quotes: Quote[];
  
   
   constructor(
-    private quotesService: QuotesService) { 
+    //private quotesService: QuotesService,
+    private http: HttpClient) { 
   }
 
 
   ngOnInit(): void {
-    this.quotes = this.quotesService.getQuotes();
+    
+    this.getQuotes();
+    this.getRandomQuote();
+
+    console.log(this.randomQuote);
+   // this.quotes = this.quotesService.getQuotes();
   }
 
-  getRandomQuote():void {
-    //this.randomQuote = this.quotes[Math.floor(Math.random() * this.quotes.length)]
+
+  getQuotes(){
+    return this.http.get<any>("https://type.fit/api/quotes").subscribe(
+      response => {
+        console.log(response);
+        this.quotes = response;
+      }
+    );
+  }
+
+  getRandomQuote(){
+    this.randomQuote = this.quotes[Math.floor(Math.random() * this.quotes.length)];
   }
 
 }
+

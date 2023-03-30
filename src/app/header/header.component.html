@@ -1,14 +1,11 @@
 <h1 style="text-align: center">{{title}}</h1>
 
 
-<div class = "inspirational-quotes" *ngFor= "let quote of quotes | async">
-    <span>{{ quote.text }}</span>
-    <span>{{ quote.author }}</span>
-</div>
-
-<br>
-
-
 <div style = "text-align: center">
     <button (onClick)="getRandomQuote()">Inspire Me</button>
+</div>
+
+<div class = "inspirational-quotes" *ngIf="randomQuote">
+    <h2>{{randomQuote.text}}</h2>
+    <h3>{{randomQuote.author}}</h3>
 </div>
